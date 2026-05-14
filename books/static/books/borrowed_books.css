@@ -12,7 +12,6 @@ body {
     overflow-x: hidden;
 }
 
-/* stars */
 body::before {
     content: "";
     position: fixed;
@@ -23,7 +22,6 @@ body::before {
     z-index: -1;
 }
 
-/* NAV */
 nav {
     width: 90%;
     margin: 20px auto;
@@ -52,7 +50,6 @@ hr {
     display: none;
 }
 
-/* TITLE */
 h1 {
     text-align: center;
     margin: 40px 0;
@@ -60,7 +57,6 @@ h1 {
     color: #f3e8ff;
 }
 
-/* TABLE WRAPPER */
 table.main_table {
     width: 92%;
     margin: 0 auto 50px auto;
@@ -75,7 +71,6 @@ table.main_table {
     box-shadow: 0 0 25px rgba(147,51,234,0.15);
 }
 
-/* HEADER */
 .table_head th {
     padding: 14px;
     text-align: left;
@@ -85,7 +80,6 @@ table.main_table {
     color: #f3e8ff;
 }
 
-/* ROWS */
 .table_body td {
     padding: 14px;
     font-size: 14px;
@@ -97,12 +91,10 @@ table.main_table {
     background: rgba(255,255,255,0.05);
 }
 
-/* BOOK IMAGE */
 table img {
     border-radius: 8px;
 }
 
-/* BUTTON */
 button {
     border: none;
     padding: 8px 14px;
@@ -119,12 +111,10 @@ button:hover {
     box-shadow: 0 0 12px rgba(192,132,252,0.5);
 }
 
-/* EXPIRED TEXT */
 span {
     font-weight: bold;
 }
 
-/* EMPTY STATE */
 td[colspan="8"] {
     text-align: center;
     padding: 25px;

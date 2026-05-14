@@ -12,7 +12,6 @@ body {
     overflow-x: hidden;
 }
 
-/* stars background */
 body::before {
     content: "";
     position: fixed;
@@ -23,7 +22,6 @@ body::before {
     z-index: -1;
 }
 
-/* NAV */
 nav {
     width: 92%;
     margin: 20px auto;
@@ -56,7 +54,6 @@ hr {
     display: none;
 }
 
-/* TITLE */
 .site-name {
     margin-top: 80px;
     font-size: 70px;
@@ -64,7 +61,6 @@ hr {
     letter-spacing: 4px;
 }
 
-/* SUBTITLE */
 h2 {
     margin-top: 10px;
     font-size: 22px;
@@ -72,14 +68,12 @@ h2 {
     font-style: italic;
 }
 
-/* PARAGRAPH */
 p {
     margin-top: 20px;
     font-size: 18px;
     color: #e9d5ff;
 }
 
-/* center spacing */
 center {
     display: flex;
     flex-direction: column;

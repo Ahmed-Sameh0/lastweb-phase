@@ -12,7 +12,6 @@ body {
     overflow-x: hidden;
 }
 
-/* stars */
 body::before {
     content: "";
     position: fixed;
@@ -23,7 +22,6 @@ body::before {
     z-index: -1;
 }
 
-/* NAV */
 nav {
     width: 90%;
     margin: 20px auto;
@@ -60,7 +58,6 @@ hr {
     justify-content: center;
 }
 
-/* CARD */
 .book-details {
     width: 100%;
     max-width: 1000px;
@@ -73,7 +70,6 @@ hr {
     box-shadow: 0 0 25px rgba(147,51,234,0.15);
 }
 
-/* BACK BUTTON */
 .back-btn {
     border: none;
     padding: 10px 16px;
@@ -90,14 +86,12 @@ hr {
     box-shadow: 0 0 15px rgba(192,132,252,0.5);
 }
 
-/* LAYOUT */
 .details-content {
     display: flex;
     gap: 30px;
     flex-wrap: wrap;
 }
 
-/* IMAGE */
 .book-image img {
     width: 320px;
     height: 450px;
@@ -106,7 +100,6 @@ hr {
     box-shadow: 0 0 20px rgba(147,51,234,0.25);
 }
 
-/* INFO SECTION */
 .details-info {
     flex: 1;
     min-width: 250px;
@@ -118,7 +111,6 @@ hr {
     color: #f3e8ff;
 }
 
-/* DETAIL ITEMS */
 .detail-item {
     margin-bottom: 18px;
 }
@@ -135,7 +127,6 @@ hr {
     line-height: 1.5;
 }
 
-/* BORROW BUTTON */
 button,
 form button {
     margin-top: 20px;

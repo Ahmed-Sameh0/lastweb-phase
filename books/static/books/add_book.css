@@ -12,7 +12,6 @@ body {
     overflow-x: hidden;
 }
 
-/* stars */
 body::before {
     content: "";
     position: fixed;
@@ -23,7 +22,6 @@ body::before {
     z-index: -1;
 }
 
-/* NAVBAR (same style as your other page) */
 nav {
     width: 90%;
     margin: 20px auto;
@@ -52,7 +50,6 @@ hr {
     display: none;
 }
 
-/* TITLE */
 h2 {
     text-align: center;
     margin-top: 40px;
@@ -60,7 +57,6 @@ h2 {
     color: #f3e8ff;
 }
 
-/* FORM CONTAINER */
 form {
     width: 90%;
     max-width: 550px;
@@ -74,7 +70,6 @@ form {
     box-shadow: 0 0 25px rgba(147,51,234,0.15);
 }
 
-/* LABELS */
 label {
     display: block;
     margin-top: 15px;
@@ -83,7 +78,6 @@ label {
     font-size: 14px;
 }
 
-/* INPUTS */
 input,
 select,
 textarea {
@@ -99,7 +93,6 @@ textarea {
     transition: 0.3s;
 }
 
-/* focus effect */
 input:focus,
 select:focus,
 textarea:focus {
@@ -107,13 +100,11 @@ textarea:focus {
     box-shadow: 0 0 12px rgba(147,51,234,0.3);
 }
 
-/* textarea */
 textarea {
     min-height: 120px;
     resize: none;
 }
 
-/* SUBMIT BUTTON */
 input[type="submit"] {
     margin-top: 20px;
     background: #9333ea;

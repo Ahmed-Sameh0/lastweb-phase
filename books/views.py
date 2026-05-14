@@ -4,10 +4,9 @@ from django.shortcuts import get_object_or_404, render, redirect
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
-from django.db.models import Q  # تمت إضافة الاستدعاء ده عشان البحث يشتغل
+from django.db.models import Q
 from .models import Book, BorrowRecord
 from django.shortcuts import get_object_or_404, render, redirect
-# ── existing views (unchanged) ──────────────────────────────────────────
 
 def view_books(request):
     return render(request, "books/view_book.html")
@@ -64,7 +63,6 @@ def add_book(request):
     return JsonResponse({"error": "Invalid request"}, status=400)
 
 
-# ── new borrow views ─────────────────────────────────────────────────────
 
 @login_required
 def borrow_book(request, book_id):
@@ -130,3 +128,9 @@ def delete_book(request, book_id):
         return JsonResponse({'error': 'Book is borrowed'}, status=400)
     book.delete()
     return JsonResponse({'success': True})
+
+from django.contrib.auth import logout
+
+def logout_view(request):
+    logout(request)
+    return redirect('login')

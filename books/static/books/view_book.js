@@ -20,7 +20,6 @@ function fetchBooks() {
         });
 }
 
-// دالة السيرش اللحظي المضادة للتهنيج
 function performSearch() {
     const searchInput = document.getElementById('searchInput');
     if (!searchInput) return;

@@ -8,7 +8,6 @@ document.querySelector('form').addEventListener('submit', function(a) {
     const desc      = document.getElementById('description').value.trim();
     const imageVal  = document.getElementById('book_image').value.trim();
 
-    // --- Validation ---
     if (!bookName) {
         alert('Book name is required.');
         return;
@@ -23,8 +22,6 @@ document.querySelector('form').addEventListener('submit', function(a) {
         return;
     }
 
-    // --- Build book object ---
-    // تأمين الـ ID وإضافة حقل isBorrowed: false عشان يظهر في الـ View فوراً
     const bookData = {
         id: bookId ? parseInt(bookId) : Date.now(), // لو مفيش ID بيعمل رقم فريد
         name: bookName,
@@ -35,13 +32,10 @@ document.querySelector('form').addEventListener('submit', function(a) {
         isBorrowed: false 
     };
 
-    // --- Send to Django API ---
-    // ملحوظة: اتأكد إن المسار ده هو نفس مسار الإضافة عندك في urls.py
-   fetch('/api/books/add/', {  // ← /books/add/ بدل
+   fetch('/api/books/add/', { 
     method: 'POST',
         headers: { 
             'Content-Type': 'application/json',
-            // بنبعت التوكن عشان لو الـ Backend محتاجه (زيادة أمان)
             'X-CSRFToken': getCookie('csrftoken') 
         },
         body: JSON.stringify(bookData)
@@ -51,7 +45,6 @@ document.querySelector('form').addEventListener('submit', function(a) {
         if (data.success) {
             alert('Book added successfully!');
             this.reset();
-            // التوجيه المباشر لصفحة عرض الكتب
             setTimeout(() => {
                 window.location.href = '/books/';
             }, 300);
@@ -65,7 +58,6 @@ document.querySelector('form').addEventListener('submit', function(a) {
     });
 });
 
-// دالة مساعدة لجلب التوكن (عشان الـ POST Request يتقبل)
 function getCookie(name) {
     let cookieValue = null;
     if (document.cookie && document.cookie !== '') {

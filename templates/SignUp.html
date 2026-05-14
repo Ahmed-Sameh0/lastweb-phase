@@ -9,13 +9,13 @@
     </head>
 
     <body>
-        <nav class="navbar">
-            <a href="index"><h1>Book Galaxy</h1></a>
-            <div class="btn">
-                <a href="index" class="Home">Home</a>
-                <a href="login" class="login">Login</a>
-            </div>
-        </nav>
+<nav class="navbar">
+    <a href="{% url 'home' %}"><h1>Book Galaxy</h1></a>
+    <div class="btn">
+        <a href="{% url 'home' %}" class="Home">Home</a>
+        <a href="{% url 'login' %}" class="Login">Login</a>
+    </div>
+</nav>
         <hr>
         <main>
             <h1>Join Book Galaxy</h1>

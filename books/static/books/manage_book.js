@@ -1,5 +1,3 @@
-// ─── Helpers ────────────────────────────────────────────────────────────────
-
 function getCsrfToken() {
     var cookie = document.cookie.split(';');
     for (var i = 0; i < cookie.length; i++) {
@@ -14,7 +12,6 @@ var currentBookId   = null;
 var originalBook    = null;
 var pendingDeleteId = null;
 
-// ─── Sort ────────────────────────────────────────────────────────────────────
 
 function getSortedBooks(books) {
     var sortVal = document.getElementById('sortSelect').value;
@@ -37,7 +34,6 @@ function getSortedBooks(books) {
     return sorted;
 }
 
-// ─── Render Table ────────────────────────────────────────────────────────────
 
 function renderTable() {
     fetch('/api/books/')
@@ -82,7 +78,6 @@ function renderTable() {
         });
 }
 
-// ─── Delete ───────────────────────────────────────────────────────────────────
 
 function handleDelete(bookId) {
     fetch('/api/books/' + bookId + '/')
@@ -124,7 +119,6 @@ function closeDeleteModal() {
     pendingDeleteId = null;
 }
 
-// ─── Edit ────────────────────────────────────────────────────────────────────
 
 function handleEdit(bookId) {
     fetch('/api/books/' + bookId + '/')
@@ -219,7 +213,6 @@ function cancelEdit() {
     document.getElementById('editMessage').textContent = '';
 }
 
-// ─── Close modals on outside click ───────────────────────────────────────────
 
 document.getElementById('deleteModal').onclick = function(e) {
     if (e.target === this) closeDeleteModal();
@@ -228,7 +221,5 @@ document.getElementById('deleteModal').onclick = function(e) {
 document.getElementById('editModal').onclick = function(e) {
     if (e.target === this) cancelEdit();
 };
-
-// ─── Init ─────────────────────────────────────────────────────────────────────
 
 renderTable();

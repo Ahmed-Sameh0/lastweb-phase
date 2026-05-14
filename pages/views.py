@@ -7,25 +7,18 @@ from django.db.models import Q
 from .models import Book
 from django.views.decorators.csrf import csrf_exempt
 
-# --- 1. عرض الصفحات (Templates) ---
-
 def index(request):
     return render(request, 'index.html')
 
 def view_books(request):
-    """صفحة عرض كل الكتب"""
     return render(request, "books/view_book.html")
 
 def add_book_page(request):
-    """صفحة فورم إضافة كتاب"""
     return render(request, "books/add_book.html")
 
 def book_details_page(request, book_id):
-    """صفحة تفاصيل كتاب معين"""
     return render(request, "books/book_details.html")
 
-
-# --- 2. نظام تسجيل الدخول والاشتراك (Authentication) ---
 
 def login(request):
     if request.method == 'POST':
@@ -83,7 +76,6 @@ def get_books(request):
             Q(name__icontains=query) | Q(author__icontains=query)
         ).values('id', 'name', 'author', 'category', 'description', 'image')
     else:
-        # لو مفيش بحث هات الكل
         books_queryset = Book.objects.all().order_by('-id').values(
             'id', 'name', 'author', 'category', 'description', 'image'
         )
@@ -105,7 +97,6 @@ def get_book(request, book_id):
 
 @csrf_exempt
 def add_book(request):
-    """إضافة كتاب جديد"""
     if request.method == "POST":
         try:
             data = json.loads(request.body)
@@ -124,3 +115,6 @@ def add_book(request):
         except Exception as e:
             return JsonResponse({"error": str(e)}, status=400)
     return JsonResponse({"error": "Invalid request"}, status=400)
+
+def welcome(request):
+    return render(request, 'welcome.html')
