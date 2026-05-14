@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Book Galaxy</title>
+  <link rel="stylesheet" href="{% static 'books/style.css' %}">
+  <link rel="stylesheet" href="{% static 'books/index.css' %}">
+</head>
+<body>
+
+<nav>
+  <a href="{% url 'index' %}">Home</a> |
+  <a href="{% url 'view_books' %}">Books</a> |
+  {% if user.is_staff %}
+    <a href="{% url 'my_borrows' %}">Borrowed Books</a> |
+        <a href="{% url 'add_book_page' %}">Add Book</a> |
+    <a href="{% url 'manage_book' %}">Manage Books</a>
+  {% else %}
+    <a href="{% url 'my_borrows' %}">Borrowed Books</a>
+  {% endif %}
+</nav>
+
+<div class="hero">
+  <h1 class="site-name"><em>Book Galaxy</em></h1>
+  <h2>"While (alive) { read, learn and grow }"</h2>
+  <p>Welcome! Ready to dive into a new world?</p>
+  <div class="hero-btns">
+    {% if user.is_staff %}
+      <a href="{% url 'manage_book' %}" class="btn-primary"><i class="fa-solid fa-gear"></i> Admin View</a>
+      <a href="{% url 'add_book_page' %}" class="btn-ghost"><i class="fa-solid fa-plus"></i> Add Book</a>
+    {% else %}
+      <a href="{% url 'view_books' %}" class="btn-primary"><i class="fa-solid fa-book-open"></i> Browse Books</a>
+      <a href="{% url 'my_borrows' %}" class="btn-ghost"><i class="fa-solid fa-bookmark"></i> My Borrows</a>
+    {% endif %}
+  </div>
+</div>
+
+<div class="recent-section">
+  <h2 class="section-title">Recently Added</h2>
+  <div class="recent-books" id="recentBooks">
+    <p class="loading-text">Loading...</p>
+  </div>
+</div>
+
+<div class="category-section">
+  <h2 class="section-title">Browse by <span class="highlight">Category</span></h2>
+  <p class="section-sub">Click a category to see all books in it</p>
+  <div class="category-grid" id="categoryGrid">
+    <p class="loading-text">Loading...</p>
+  </div>
+</div>
+
+<script src="{% static 'books/view_book.js' %}"></script>
+<script src="{% static 'books/index.js' %}"></script>
+
+</body>
+</html>
